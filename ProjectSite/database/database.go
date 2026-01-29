@@ -2,18 +2,18 @@ package database
 
 import (
 	"database/sql"
-
 	"fmt"
 	"log"
 
 	_ "github.com/lib/pq"
+	"github.com/spf13/viper"
 )
 
 var DB *sql.DB
 
 func Connect() error {
-	connStr := "user=postgres dbname=Site sslmode=disable password=1234955 port=9090 host=localhost"
-	db, err := sql.Open("postgres", connStr)
+	connStr := viper.GetString("bd")
+	db, err := sql.Open("postgres", string(connStr))
 	if err != nil {
 		return fmt.Errorf("ошибка подключения к БД: %v", err)
 	}

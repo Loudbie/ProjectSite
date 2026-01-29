@@ -1,0 +1,4 @@
+bd: "user=postgres dbname=Site sslmode=disable password=1234955 port=9090 host=localhost"
+port: ":3000"
+secret_key: "my_secret_key"
+app.name: "Site"
